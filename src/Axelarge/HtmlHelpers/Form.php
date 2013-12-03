@@ -284,7 +284,9 @@ class Form {
 			'id'       => static::autoId($name),
 			'multiple' => false,
 		), $attributes);
-
+		
+                if ($attributes['multiple']) $attributes['name'] .= "[]";
+                
 		if (is_string($selected) || is_numeric($selected)) {
 			$selected = array($selected => 1);
 		} else if (is_array($selected)) {
